@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>.: Demo Calendar :.</title>
+
+    <!-- CSS -->
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="Content/fullcalendar.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+
+    <div ng-app="myApp" ng-controller="myNgController">
+
+
+        <script type="text/ng-template" id="modalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title"> Events </h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="error">{{Message}}</div>
+                <div class="form-group">
+                    <label>Event Title : </label>
+                    <input type="text" ng-model="NewEvent.Title" autofocus class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Description : </label>
+                    <input type="text" ng-model="NewEvent.Description" autofocus class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Time Slot : </label>
+                    <span>{{NewEvent.StartAt}} - {{NewEvent.EndAt}}</span>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+                <button class="btn btn-danger" type="button" ng-show="NewEvent.EventID > 0" ng-click="delete()">Delete</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+
+
+        </script>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- JS -->
+    <script src="Scripts/moment.js"></script>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/calendar.js"></script>
+    <script src="Scripts/fullcalendar.js"></script>
+    <script src="Scripts/gcal.js"></script>
+
+    <script src="Scripts/MyApp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js"></script>
+
+</body>
+</html>
